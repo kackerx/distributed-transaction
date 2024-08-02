@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX Go App</title>
+    <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
+    <style>
+        .red {
+            color: red;
+            transition: all ease-in 5s;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="greeting"
+    hx-get="/api/greeting"
+    hx-trigger="mouseenter"
+    hx-target="#res">Loading...</h1>
+
+<div hx-post="/mouse_entered" hx-trigger="mouseenter once">
+    [Here Mouse, Mouse!]
+</div>
+
+<div id="res" class="red"></div>
+
+<div class="red">NNNNN</div>
+
+{{ .name }}
+</body>
+</html>
